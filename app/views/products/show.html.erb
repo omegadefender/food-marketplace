@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @product.quantity %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @product.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Cost per unit:</strong>
+  <%= @product.cost_per_unit %>
+</p>
+
+<p>
+  <strong>Pickup location:</strong>
+  <%= @product.pickup_location %>
+</p>
+
+<p>
+  <strong>Expiry:</strong>
+  <%= @product.expiry %>
+</p>
+
+<p>
+  <strong>Food category:</strong>
+  <%= @product.food_category %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @product.image %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @product.user %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
