@@ -2,7 +2,15 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.1'
+
+# custom gems
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem "devise", "~> 4.5"
+
+gem "pundit", "~> 2.0"
+
+gem "stripe", "~> 3.29"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
@@ -62,6 +70,3 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "devise", "~> 4.5"
-
-gem "stripe", "~> 3.29"

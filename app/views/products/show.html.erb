@@ -50,7 +50,6 @@
   <strong>User:</strong>
   <%= @product.user.email %>
 </p>
-
 <!-- This part deals with the stripe button -->
 <%= form_tag charges_path do %>
             <%= hidden_field_tag(:product_id, @product.id) %>
@@ -67,5 +66,8 @@
 <% end %>
 <!-- This part deals with the stripe button -->
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
+
+<% if @product.user == current_user %>
+  <%= link_to 'Edit', edit_product_path(@product) %> |
+<% end %>
 <%= link_to 'Back', products_path %>

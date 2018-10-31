@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+User.create({
+    email: ENV.fetch('USER_EMAIL'),
+    password: ENV.fetch('USER_PASSWORD'),
+    firstname: 'Ben',
+    lastname: 'Gelbard'
+}) { puts "created user" }
+
+
+
