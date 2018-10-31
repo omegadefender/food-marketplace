@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<!-- Grab current user email to use in stripe-->
+<% if user_signed_in? %>
+  <% @email = current_user.email %>
+<% end %> 
+<!-- Grab current user email to use in stripe-->
+
 <p>
   <strong>Quantity:</strong>
   <%= @product.quantity %>
@@ -42,8 +48,24 @@
 
 <p>
   <strong>User:</strong>
-  <%= @product.user %>
+  <%= @product.user.email %>
 </p>
+
+<!-- This part deals with the stripe button -->
+<%= form_tag charges_path do %>
+            <%= hidden_field_tag(:product_id, @product.id) %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                    data-description="<%= @product.title %>"
+                    data-amount="<%= @product.cost_per_unit %>"
+                    data-currency="aud"
+                    data-locale="auto"
+                    data-email="<%= @email %>"
+                    data-label="Buy <%= @product.title %>s "
+                    data-allow-remember-me="false" >
+            </script>
+<% end %>
+<!-- This part deals with the stripe button -->
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

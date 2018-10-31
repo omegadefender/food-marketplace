@@ -5,7 +5,12 @@
     <p><%= @website_description %></p>
 </div>
 
-<div id="landing_page_log_in" style="position: absolute; top: 20px; right:20px;"><%= link_to('Login', new_user_session_path)  %></div>
+<div id="landing_page_log_in" style="position: absolute; top: 20px; right:20px;">
+<% if user_signed_in? %>
+    <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
+<% else %>
+    <%= link_to('Login', new_user_session_path)  %>
+<% end %></div>
 
 <div id="landing_page_find_food" style="position: absolute; top: 20px; left:20px;"><%= link_to('Find Food', new_user_session_path)  %></div>
 

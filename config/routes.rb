@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :products
   resources :profiles
+  resources :charges
   devise_for :users
   
   root to: 'pages#welcome'
