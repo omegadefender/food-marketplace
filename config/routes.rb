@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :charges
   devise_for :users
   
-  root to: 'pages#welcome'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root to: 'pages#welcome'
+  get '/pages/landing_page_login', to: 'pages#landing_page_login'
+  get '/pages/about_us', to: 'pages#about_us'
 end
