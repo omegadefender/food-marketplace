@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   root to: 'pages#welcome'
   get '/pages/landing_page_login', to: 'pages#landing_page_login'
+  get '/pages/about_us', to: 'pages#about_us'
 end
