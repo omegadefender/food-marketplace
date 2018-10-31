@@ -10,6 +10,18 @@
   </head>
 
   <body>
+<br>
+  <div id="landing_page_find_food" style="position: absolute; top: 20px; left:20px;"><%= link_to('Find Food', :products)  %></div>
+
+<div id="landing_page_post_food" style="position: absolute; top: 20px; left:150px;"><%= link_to('Post Food', :products)  %></div>
+
+
+<% if user_signed_in? %>
+    <p style="position: absolute; top: 20px; right:20px;">welcome <%= current_user.firstname %> (<%= link_to('Logout', destroy_user_session_path, method: :delete) %>) </p>     
+
+<% else %>
+<div id="landing_page_log_in" style="position: absolute; top: 20px; right:20px;"><%= link_to('Login', new_user_session_path)  %></div>
+<% end %>
     <%= yield %>
   </body>
 </html>
