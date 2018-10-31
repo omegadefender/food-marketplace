@@ -28,7 +28,8 @@
         <td><%= product.pickup_location %></td>
         <td><%= product.expiry %></td>
         <td><%= product.food_category %></td>
-        <td><%= product.image %></td>
+        <td><%= product.image %></td> 
+        <%# make this work ^ %>
         <td><%= product.user.firstname %></td>
         <td><%= link_to 'Show', product %></td>
                 <% if product.user == current_user %>
