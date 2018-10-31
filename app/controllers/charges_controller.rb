@@ -21,7 +21,7 @@ class ChargesController < ApplicationController
     
         current_user.products << @product
         
-        redirect_to @product
+        # redirect_to @product
         
         rescue Stripe::CardError => e
             flash[:error] = e.message

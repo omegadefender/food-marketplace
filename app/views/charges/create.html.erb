@@ -1,1 +1,16 @@
-<h2>Thanks, you paid <strong><%= number_to_currency(@product.cost_per_unit/100)%></strong>!</h2>
+<h2>Congratulations on buying some local products and supporting your community!</h2>
+<h3>An email has been sent to you with all the information 
+about your new purchase</h3>
+
+<ul>
+    <li>Item: <%= @product.title %></li>
+    <li>Description: <%= @product.description %></li>
+    <li>Location: <%= @product.pickup_location %></li>
+    <li>Poster: <%#= @product.user.first_name %> <%#= @product.user.last_name %></li>
+    <li>Contact Number: <%#= @product.user.contact_number %></li>
+</ul>
+
+<%= link_to('Post Food', '/products/new')  %>
+<%= link_to('Find Food', '/products')  %>
+<%= link_to('Manage Details', new_user_session_path)  %>
+<%= link_to('Order History', new_user_session_path)  %>
