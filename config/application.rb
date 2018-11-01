@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-if ['development', 'test'].include? ENV['RAILS_ENV','PUBLISHABLE_KEY','SECRET_KEY']
+if ['development', 'test'].include? ENV['RAILS_ENV']
   Dotenv::Railtie.load
 end
 
