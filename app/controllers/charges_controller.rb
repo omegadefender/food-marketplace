@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class ChargesController < ApplicationController
 
     def new
@@ -6,7 +8,7 @@ class ChargesController < ApplicationController
 
     def create
         @product = Product.find(params[:product_id])
-    
+
         customer = Stripe::Customer.create(
             :email => params[:stripeEmail],
             :source  => params[:stripeToken]
@@ -21,7 +23,18 @@ class ChargesController < ApplicationController
     
         current_user.products << @product
         
-        # redirect_to @product
+        # Create a new Order object in conjunction with creating a new charge transaction
+
+        @order = Order.new()
+        @order.quantity = @product.quantity
+        @order.total_amount = @product.cost_per_unit
+        @order.payment_details = "#{@product.title}: #{@product.description}"
+        @order.receipt = SecureRandom.hex(6)
+        @order.user_id = current_user.id
+        @order.product_id = @product.id
+        @order.save
+
+        # Create a new Order object in conjunction with creating a new charge transaction
         
         rescue Stripe::CardError => e
             flash[:error] = e.message
