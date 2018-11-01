@@ -7,7 +7,7 @@
 <!-- Grab current user email to use in stripe-->
 
 <p>
-  <strong>Quantity:</strong>
+  <strong>Stock:</strong>
   <%= @product.quantity %>
 </p>
 
@@ -50,10 +50,24 @@
   <strong>User:</strong>
   <%= @product.user.email %>
 </p>
+
+
+
+
 <!-- This part deals with the stripe button -->
 <%= form_tag charges_path do %>
-            <%= hidden_field_tag(:product_id, @product.id) %>
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+
+            <%= hidden_field_tag(:price, @product.cost_per_unit, id: :price) %>
+            <p>
+              <strong>Quantity Required:</strong>
+              <%= number_field_tag('user_amount', nil, min: 1, max: @product.quantity) %>
+            </p>
+
+            <p>
+              <strong>Total Amount: <span id="total"><%= @total_price unless nil %></span></strong>
+            </p>
+
+            <script id="stripeScript" src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                     data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                     data-description="<%= @product.title %>"
                     data-amount="<%= @product.cost_per_unit %>"
@@ -71,3 +85,31 @@
   <%= link_to 'Edit', edit_product_path(@product) %> |
 <% end %>
 <%= link_to 'Back', products_path %>
+
+
+<script>
+  var qtyInput = document.getElementById('user_amount')
+  var totalText = document.getElementById('total')
+  var price = document.getElementById('price')
+  var stripeScript = document.getElementById('stripeScript')
+  var total = price.value * 1;
+  qtyInput.addEventListener('change', updatePage)
+
+
+  function updateTotal(event) {
+    var qty = event.target.value;
+    return price.value * qty
+  }
+
+  function updatePage(event) {
+    const total = updateTotal(event)
+    totalText.innerText = total
+    stripeScript.dataset.amount = total
+    stripeScript.src = ''
+    stripeScript.src = 'https://checkout.stripe.com/checkout.js'
+  }
+  
+  
+
+
+</script>
