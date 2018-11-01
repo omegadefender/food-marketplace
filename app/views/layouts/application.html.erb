@@ -21,6 +21,7 @@
 
 
 <% if user_signed_in? %>
+    <p style="position: absolute; top: 40px; right: 20px;"><%= link_to('Edit Account', '/users/edit') %>
     <p style="position: absolute; top: 20px; right:20px;">Welcome <%= current_user.firstname %> (<%= link_to('Logout', destroy_user_session_path, method: :delete) %>) </p>     
 
 <% else %>

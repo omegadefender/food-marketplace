@@ -10,6 +10,10 @@ class PagesController < ApplicationController
     @user = current_user
   end
 
+  def account
+    @user = current_user
+  end
+
   def about_us
     @main_header = "Foodtopia"
     @second_header = "Our Mission"
