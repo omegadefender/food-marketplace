@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.4.1'
 
 # custom gems
-gem 'dotenv-rails', '~> 2.5', groups: [:development, :test]
+gem 'dotenv-rails', groups: [:development, :test]
 
 gem "devise", "~> 4.5"
 
@@ -66,6 +66,10 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
+
+# group :production do
+#   gem 'dotenv-rails'
+# end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
