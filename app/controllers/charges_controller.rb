@@ -21,7 +21,7 @@ class ChargesController < ApplicationController
             :currency    => 'aud'
         )
     
-        current_user.products << @product
+        # current_user.products << @product
         
         # Create a new Order object in conjunction with creating a new charge transaction
 
@@ -35,7 +35,7 @@ class ChargesController < ApplicationController
         @order.save
 
         # Create a new Order object in conjunction with creating a new charge transaction
-        
+
         rescue Stripe::CardError => e
             flash[:error] = e.message
             redirect_to new_charge_path
