@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.4.1'
 
 # custom gems
-gem 'dotenv-rails', groups: [:development, :test, :production]
+gem 'dotenv-rails', groups: [:development, :test]
 
 gem "devise", "~> 4.5"
 
