@@ -67,7 +67,7 @@ group :test do
   gem 'chromedriver-helper'
 end
 
-group :production does
+group :production do
   gem 'dotenv-rails'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
