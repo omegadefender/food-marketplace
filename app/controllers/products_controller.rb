@@ -17,12 +17,13 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
-end
+  end
 
   # GET /products/1
   # GET /products/1.json
   def show
     @user = current_user
+    @total_price = params[:price]
   end
 
   # GET /products/new
@@ -54,7 +55,7 @@ end
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
-    authorize @product
+    # authorize @product
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
