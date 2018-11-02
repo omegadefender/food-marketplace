@@ -17,7 +17,8 @@ class ChargesController < ApplicationController
             :customer    => customer.id,
             :amount      => @product.cost_per_unit.to_i,
             :description => @product.title,
-            :currency    => 'aud'
+            :currency    => 'aud',
+            :receipt_email => current_user.email
         )
     
         # Create a new Order object in conjunction with creating a new charge transaction
