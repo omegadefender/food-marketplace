@@ -22,12 +22,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @order.user %>
+  <%= @order.user.firstname %> <%= @order.user.lastname %>
 </p>
 
 <p>
   <strong>Product:</strong>
-  <%= @order.product %>
+  <%= @order.product.title %>
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> 

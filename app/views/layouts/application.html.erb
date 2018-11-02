@@ -21,7 +21,9 @@
 
 
 <% if user_signed_in? %>
-    <p style="position: absolute; top: 20px; right:20px;">welcome <%= current_user.firstname %> (<%= link_to('Logout', destroy_user_session_path, method: :delete) %>) </p>     
+    
+    <p style="position: absolute; top: 40px; right: 20px;"><%= link_to('Edit Account', '/users/edit') %>
+    <p style="position: absolute; top: 20px; right:20px;">Welcome <%= link_to(current_user.firstname, '/pages/landing_page_login') %> (<%= link_to('Logout', destroy_user_session_path, method: :delete) %>) </p>     
 
 <% else %>
 <div id="landing_page_log_in" style="position: absolute; top: 20px; right:20px;"><%= link_to('Login', new_user_session_path)  %></div>
