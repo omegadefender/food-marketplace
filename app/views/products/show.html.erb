@@ -7,7 +7,7 @@
 <!-- Grab current user email to use in stripe-->
 
 <p>
-  <strong>Stock:</strong>
+  <strong>Quantity:</strong>
   <%= @product.quantity %>
 </p>
 
@@ -50,96 +50,22 @@
   <strong>User:</strong>
   <%= @product.user.email %>
 </p>
-
-
-
-
 <!-- This part deals with the stripe button -->
 <%= form_tag charges_path do %>
-
-  <%= hidden_field_tag(:product_id, @product.id) %>
-  <%= hidden_field_tag(:price, @product.cost_per_unit, id: :price) %>
-  <%= hidden_field_tag(:title, @product.title, id: :title) %>
-  <%= hidden_field_tag(:description, @product.description, id: :description) %>
-  <%= hidden_field_tag(:currentEmail, current_user.email, id: :currentEmail) %>
-
-  <p>
-    <strong>Quantity Required:</strong>
-    <%= number_field_tag('user_amount', 1, min: 1, max: @product.quantity) %>
-  </p>
-
-  <p>
-    <strong>Total Amount: <span id="total"><%= @total_price unless nil %></span></strong>
-  </p>
-
-  <!-- Custom stripe handler -->
-
-  <script src="https://checkout.stripe.com/checkout.js"></script>
-  <button id="customButton">Buy <%= @product.title %>(s)</button>
-
-  <script>
-
-    var title = document.getElementById('title');
-    var description = document.getElementById('description');
-    var email = document.getElementById('currentEmail');
-    var qtyInput = document.getElementById('user_amount');
-    var totalText = document.getElementById('total')
-    var price = document.getElementById('price');
-
-    var total = price.value * qtyInput.value;
-    qtyInput.addEventListener('change', updatePage);
-
-    console.log(title.value);
-    console.log(description.value);
-    console.log(email.value);
-    console.log(total)
-
-    var handler = StripeCheckout.configure({
-      key: 'pk_test_1vKbEV4RJbEZd8J6TnRyNevM',
-      image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-      locale: 'auto',
-      token: function(token) {
-        // You can access the token ID with `token.id`.
-        // Get the token ID to your server-side code for use.
-      }
-    });
-
-    document.getElementById('customButton').addEventListener('click', function(e) {
-    // Open Checkout with further options:
-    handler.open({
-      name: title.value,
-      description: description.value,
-      currency: 'aud',
-      amount: total,
-      allowRememberMe: false,
-      email: email.value
-      
-    });
-    console.log(total);
-    e.preventDefault();
-
-    });
-
-    // Close Checkout on page navigation:
-    window.addEventListener('popstate', function() {
-      handler.close();
-    });
-
-    function updateTotal(event) {
-      var qty = event.target.value;
-      return price.value * qty
-      console.log(qty)
-    }
-
-    function updatePage(event) {
-      total = updateTotal(event)
-      totalText.innerText = total
-    }
-
-  </script>
-
+            <%= hidden_field_tag(:product_id, @product.id) %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<%= Rails.configuration.stripe[:publishable_key]%>"
+                    data-description="<%= @product.title %>"
+                    data-amount="<%= @product.cost_per_unit %>"
+                    data-currency="aud"
+                    data-locale="auto"
+                    data-email="<%= @email %>"
+                    data-label="Buy <%= @product.title %> "
+                    data-allow-remember-me="false" >
+            </script>
 <% end %>
 <!-- This part deals with the stripe button -->
+
 
 <% if @product.user == current_user %>
   <%= link_to 'Edit', edit_product_path(@product) %> |
