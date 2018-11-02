@@ -11,8 +11,8 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @user = current_user
-    @user_amount = params[:user_amount]
     @total_price = 1 * @product.cost_per_unit
+    @total_amount = 0;
   end
 
   # GET /products/new
