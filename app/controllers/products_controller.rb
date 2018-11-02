@@ -86,6 +86,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:store ,:quantity, :title, :description, :cost_per_unit, :pickup_location, :expiry, :food_category, :image, :user_id,)
+      params.require(:product).permit(:quantity, :title, :description, :cost_per_unit, :pickup_location, :expiry, :food_category, :dietary_specs, :image, :user_id,)
     end
 end
