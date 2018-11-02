@@ -3,14 +3,13 @@ require 'securerandom'
 class ChargesController < ApplicationController
 
     def new
-
     end
 
     def create
         @product = Product.find(params[:product_id])
 
         customer = Stripe::Customer.create(
-            :email => params[:stripeEmail],
+            :email => current_user.email,
             :source  => params[:stripeToken]
         )
     
@@ -21,8 +20,6 @@ class ChargesController < ApplicationController
             :currency    => 'aud'
         )
     
-        # current_user.products << @product
-        
         # Create a new Order object in conjunction with creating a new charge transaction
 
         @order = Order.new()
