@@ -1,11 +1,23 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+  def products_params
+    params.require(:store).permit(:store, :products_code)
+  end
+
+  def index
+    if params[:product]
+      @products = Product.where('product LIKE ?', "%#{params[:product]}%")
+    else
+      @products = Product.all
+    end
+  end
+
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
-  end
+end
 
   # GET /products/1
   # GET /products/1.json
@@ -67,6 +79,7 @@ class ProductsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -75,6 +88,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:quantity, :title, :description, :cost_per_unit, :pickup_location, :expiry, :food_category, :image, :user_id)
+      params.require(:product).permit(:quantity, :title, :description, :cost_per_unit, :pickup_location, :expiry, :food_category, :dietary_specs, :image, :user_id,)
     end
 end
