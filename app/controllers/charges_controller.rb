@@ -7,7 +7,7 @@ class ChargesController < ApplicationController
 
     def create
         @product = Product.find(params[:product_id])
-
+        
         customer = Stripe::Customer.create(
             :email => current_user.email,
             :source  => params[:stripeToken]
@@ -18,14 +18,14 @@ class ChargesController < ApplicationController
             :amount      => @product.cost_per_unit.to_i,
             :description => @product.title,
             :currency    => 'aud',
-            :receipt_email => current_user.email
+            :receipt_email => customer.email
         )
     
         # Create a new Order object in conjunction with creating a new charge transaction
 
         @order = Order.new()
         @order.quantity = @product.quantity
-        @order.total_amount = @product.cost_per_unit
+        @order.total_amount = @product.cost_per_unit #* @user_amount
         @order.payment_details = "#{@product.title}: #{@product.description}"
         @order.receipt = SecureRandom.hex(6)
         @order.user_id = current_user.id

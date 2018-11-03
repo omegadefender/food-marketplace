@@ -59,10 +59,11 @@
   <%= hidden_field_tag(:title, @product.title, id: :title) %>
   <%= hidden_field_tag(:description, @product.description, id: :description) %>
   <%= hidden_field_tag(:currentEmail, current_user.email, id: :currentEmail) %>
+  <%= hidden_field_tag(:select_amount) %>
 
   <p>
     <strong>Quantity Required:</strong>
-    <%= number_field_tag('user_amount', 1, min: 1, max: @product.quantity) %>
+    <%= number_field_tag(:user_amount, 1, min: 1, max: @product.quantity, id: :user_amount) %>
   </p>
 
   <p>
@@ -72,9 +73,11 @@
   <!-- Custom stripe handler -->
 
   <script src="https://checkout.stripe.com/checkout.js"></script>
-  <button id="customButton">Buy <%= @product.title %>(s)</button>
+  <button id="customButton">Purchase</button>
 
   <script>
+
+   
 
     var title = document.getElementById('title');
     var description = document.getElementById('description');
@@ -84,6 +87,7 @@
     var price = document.getElementById('price');
 
     var total = price.value * qtyInput.value;
+    document.getElementById('txt').value = qtyInput.value;
     qtyInput.addEventListener('change', updatePage);
 
     console.log(title.value);
@@ -127,8 +131,6 @@
         document.body.appendChild(form)
         form.submit()
 
-        // You can access the token ID with `token.id`.
-        // Get the token ID to your server-side code for use.
       }
     });
 

@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+
   end
 
   # GET /products/1
@@ -24,6 +25,7 @@ class ProductsController < ApplicationController
   def show
     @user = current_user
     @total_price = params[:price]
+    @user_amount = params[:user_amount]
   end
 
   # GET /products/new
