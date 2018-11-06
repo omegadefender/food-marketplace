@@ -1,6 +1,6 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
-<script
+<script 
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
@@ -23,7 +23,7 @@
       <th>Food category</th>
       <th>Image</th>
       <th>User</th>
-      <th></th>
+      <th>View</th>
   </thead>
   <tbody>
     <% @products.each do |product| %>
@@ -43,14 +43,7 @@
         <%= link_to 'Edit', edit_product_path(product) %>
         <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 <% end %>
-        <td><%= product.image %></td> 
-        <td><%= product.user.firstname %></td>
 
-        <td><%= link_to 'Show', product %></td>
-        <% if product.user == current_user %>   
-          <td><%= link_to 'Edit', edit_product_path(product) %></td>
-          <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
 
       </tr>
     <% end %>

@@ -5,8 +5,13 @@
     <p><%= @website_description %></p>
 </div>
 
+<br>
+
 <div id="landing_page_sign_up" style="text-align: center; font-size: 25px;"><%= link_to('Hungry, Broke & Local?', new_user_registration_path) %></div>
 
-<div id="landing_page_image" style="padding-top: 100px;"><img src="https://bit.ly/2Dd8pvU" width="600px" height="300px" style="display: block; margin-left: auto; margin-right: auto;"></div>
+<p class="landing_page" style="text-align: center;">already have an account?</p>
 
+<div id="landing_page_sign_up" style="text-align: center; font-size: 25px; "><%= link_to('Login', new_user_session_path) %></div>
+
+<div id="landing_page_image" style="padding-top: 20px;"><img src="https://bit.ly/2Dd8pvU" width="600px" height="300px" style="display: block; margin-left: auto; margin-right: auto;"></div>
 
