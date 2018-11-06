@@ -1,10 +1,24 @@
-<body class="landing_page_login">
+<body>
 
-<h1>Welcome <%= @user.firstname %>!</h1>
-<%= link_to('Post Food', '/products/new')  %>
-<%= link_to('Find Food', '/products')  %>
-<%= link_to('Manage Details', root_path)  %>
-<%= link_to('Order History', '/orders')  %>
-<%= link_to('About Us', '/pages/about_us')  %>
+<h1 class="welcome">Welcome <%= @user.firstname %>,</h1>
+<h3 class="welcome welcome2">What would you like to do? </h3> 
+
+<div class="main-grid">
+            <div class="link_post landing_page_links">
+                <%= link_to('Post Food', '/products/new')  %>
+            </div>
+            <div class="link_find landing_page_links">
+                <%= link_to('Find Food', '/products')  %>
+            </div>
+            <div class="link_manage landing_page_links">
+                <%= link_to('Manage Details', root_path)  %>
+            </div>
+            <div class="link_history landing_page_links">
+                <%= link_to('Order History', '/orders')  %>
+            </div>
+            <div class="link_about landing_page_links">
+                <%= link_to('About Us', '/pages/about_us')  %>
+    </div>
+</div>
 
 </body>
