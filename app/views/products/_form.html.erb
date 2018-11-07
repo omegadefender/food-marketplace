@@ -1,3 +1,5 @@
+<link rel="/assets/stylesheets/new_product.scss" type="css" href="/assets/stylesheets/new_product.scss">
+
 <%= form_with(model: product, local: true) do |form| %>
   <% if product.errors.any? %>
     <div id="error_explanation">
@@ -5,35 +7,40 @@
 
       <ul>
       <% product.errors.full_messages.each do |message| %>
+      
+
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :quantity %> <br>
-    <%= form.number_field :quantity %>
-  </div>
+<div class="grid">
+
 
   <div class="field">
     <%= form.label :title %> <br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class:"input_field" %>
   </div>
 
   <div class="field">
+    <%= form.label :quantity %> <br>
+    <%= form.number_field :quantity, class:"input_field" %>
+  </div>
+
+  <div class="field des1">
     <%= form.label :description %> <br>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class:"input_field des" %>
   </div>
 
   <div class="field">
     <%= form.label :cost_per_unit %> <br>
-    <%= form.text_field :cost_per_unit %>
+    <%= form.text_field :cost_per_unit, class:"input_field" %>
   </div>
 
   <div class="field">
     <%= form.label :pickup_location %> <br>
-    <%= form.text_field :pickup_location %>
+    <%= form.text_field :pickup_location, class:"input_field" %>
   </div>
 
   <div class="field">
@@ -43,7 +50,7 @@
 
   <div class="field">
     <%= form.label :food_category %> <br>
-    <%= form.text_field :food_category %>
+    <%= form.text_field :food_category, class:"input_field" %>
         <%# <select>
         <option value="fruits">Fruits</option>
         <option value="vegetables">Vegetables</option>
@@ -69,8 +76,11 @@
     <%= form.file_field :image %>
   </div>
 
-  <div class="actions"> <br>
+  <div class="actions submit"> <br>
     <%= form.submit %>
   </div>
+
+  </div>
+
 <% end %>
 
