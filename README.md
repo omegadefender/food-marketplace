@@ -10,7 +10,8 @@ Link to GitHub respository: [LINK](https://github.com/dlim28/food-marketplace)
 ```
 This project (Foodtopia) is a marketplace that allows local people to be able to sell or buy local produce within their surrounding area. 
 
-It resolves a problem where local farmers may have excess produce and would like to sell their excess produce.
+It resolves a problem where there is a food wastage in australia as local produce gets thrown away due to excess and unable to be sold. There is certainly a demand to have local farmers or growers sell off their produce and may not have business savvy to sell their products.
+
 Likewise people who prefer local or organically grown produce may use the site to find local farmers wishing to sell their products
 ```
 
@@ -24,7 +25,11 @@ As a seller the user can make a listing of the product they want to sell, they c
 ```
 
 ## Screenshots
-TBD
+![Login Landing Page](Resources/screencapture-localhost-3000-pages-landing_page_login-2018-11-07-10_54_00.png "Login landing page")
+
+![Product Page](Resources/screencapture-localhost-3000-products-8-2018-11-07-10_54_15.png "Product Page")
+
+![Listing Page](Resources/screencapture-localhost-3000-products-2018-11-07-10_52_43.png "Listing Page")
 
 ## Tech Stack
 ```
@@ -54,16 +59,94 @@ Once logged in, you will immediately be sent to a landing page that will have a 
 Alternatively there is a "Edit Account" button just under the logout button that will redirect you to the edit details page
 ```
 
->Buying
+>**Buying**
 ```
 To purchase a product you will need to navigate to the "Find Food" page which can be found on the navbar.
 
 Here all the foods listed will be displayed. If there is a particular food you wish to purchase you can use the search bar to filter out the listings.
 
-Clicking on "Show" will take you to the product page
+Clicking on "Show" will take you to the product page where you can purchase the product and the amount you wish to purchase. The stripe checkout will handle the credit card verification process.
+
+Once stripe has successfully charged you, you are then lead to a receipt page where you can then review your purchase
+```
+
+>**Selling**
+```
+Up on the navigation bar there is a link that says "Post Food"
+
+This link will direct you to the new listing page where you can upload all the information of the produce you wish to sell.
+
+Once listed it will be put on the "Find Food" page
+```
+
+>**Viewing past orders**
+```
+You can view past orders by clicking on your name on the upper right of the screen.
+
+This will lead you to a personal page where you can do some admin on your profile.
+
+One of the links is called "Order History" which will show your purchase history.
+If you have put up listings, you will also see your current listings that are still active as well.
 ```
 # Design Documentation
 
+## Design Process
+
+## User Stories
+```
+The user stories that we did were mainly done using the following format:
+
+As a <WHO> I should be able to do <WHAT> so that <REASON>
+
+This format allowed us to easily create generic use cases that could easily build the web app
+```
+>Link to User Stories document [LINK](https://docs.google.com/document/d/1mt5UJZ15mcWQsgtTvX4b6akVUfdxBVfHIAxipxEv_gA/edit)
+
+## User Workflow Journey/s
+```
+```
+
+## Wireframes
+```
+The wireframes we completed showed us a rough idea on where we should place our content as well as showed the general navigation
+```
+>Wireframe
+
+![Wireframe](Resources/foodtopia-wireframe-3.png "Wireframe")
+
+## Database Entity Relationship Diagrams
+>**Initial ERD**
+
+![Initial ERD](Resources/ERD-Initial.png "Initial ERD")
+
+>**Final ERD**
+
+![Final ERD](Resources/ERD.png "Final ERD")
+
+# Project Management
+
+## Plan and Timeline
+```
+The project was to take place over 2 weeks with a deadline of Friday 9th of November
+
+It was agreed that we would use the first week to have the minimum viable product (MVP) ready and deployed in working order.
+
+This meant that the following would need to be completed within the first week:
+
+- Creation of database
+- 
+
+The next week would see that we would have styling for the website completed. This would be completed using CSS.
+To be completed would also be the admin work for the project such as the README file and ensuring that the deployment would work correctly
+
+In order to manage the project we will be using Trello. The use of trello will allow us to manage the project by adding in the user stories as tasks and building that particular user story in the app.
+
+We had assigned one person per user story and within each user story there would be a checklist of "Things to Do" that would meet the minimum requirement for the user story to be completed
+```
+
+>Trello
+
+![Trello Screenshot](Resources/Rails_Project_Trello.png "Trello Screenshot")
 
 # Short Answer Questions
 
