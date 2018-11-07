@@ -25,9 +25,15 @@ As a seller the user can make a listing of the product they want to sell, they c
 ```
 
 ## Screenshots
+>**Landing Page**
+
 ![Login Landing Page](Resources/screencapture-localhost-3000-pages-landing_page_login-2018-11-07-10_54_00.png "Login landing page")
 
+>**Product Page**
+
 ![Product Page](Resources/screencapture-localhost-3000-products-8-2018-11-07-10_54_15.png "Product Page")
+
+>**Product Listing Page**
 
 ![Listing Page](Resources/screencapture-localhost-3000-products-2018-11-07-10_52_43.png "Listing Page")
 
@@ -35,13 +41,13 @@ As a seller the user can make a listing of the product they want to sell, they c
 ```
 The tech stack surrounding the website are as follows:
 
-Ruby / Ruby on Rails: The back-end of the website will be using rails.
+Ruby / Ruby on Rails: The back-end of the website will be programmed using rails.
 
-HTML / CSS: HTML will be used to format the website using erb files within rails. CSS will be used to style the web site
+HTML / CSS: HTML will be used to format the website using erb files within rails. CSS will be used to style the web site.
 
-Postgresql: We will be using postgresql to support the website database. 
+Postgresql: We will be using postgresql to support the website database.
 
-The live service will be deployed on Heroku.
+The live service will be deployed on a cloud platform called Heroku.
 ```
 
 ## Instructions
@@ -91,6 +97,28 @@ If you have put up listings, you will also see your current listings that are st
 # Design Documentation
 
 ## Design Process
+>Database
+```
+The design of the database was to follow a model that most online marketplaces would have. 
+We designed the database to include the following:
+
+- Profile
+- User
+- Order
+- Product
+
+Product: This is the table where products gets recorded in. All foods or items will be recorded as a product with an associated user (user id) as the original poster
+
+Order: The order table is there to made records of the purchases that the user would have made. It is associated by a user as well as a product (The purchased product)
+
+User: The user table is what will handle the authentication of the website
+
+Profile: The profile table is what controls the personal information for the website. We decided to split the two because it would be more secure if the table for authentication is seperate from personal data. Should there be a breach the personal data would technically be seperate from the user table.
+```
+
+>HTML/CSS
+```
+```
 
 ## User Stories
 ```
@@ -131,11 +159,6 @@ The project was to take place over 2 weeks with a deadline of Friday 9th of Nove
 
 It was agreed that we would use the first week to have the minimum viable product (MVP) ready and deployed in working order.
 
-This meant that the following would need to be completed within the first week:
-
-- Creation of database
-- 
-
 The next week would see that we would have styling for the website completed. This would be completed using CSS.
 To be completed would also be the admin work for the project such as the README file and ensuring that the deployment would work correctly
 
@@ -171,7 +194,11 @@ The app will provide an online marketplace for consumers and growers to connect 
 
 4. **Describe the network infrastructure the App may be based on.**
 ```
-The app will be using rails to provide the infrastructure of the network connectivity
+The app will be using rails to provide the infrastructure of the network connectivity.
+
+The production service will deployed on a cloud platform called Heroku.
+
+Heroku is a cloud platform as a service (PaaS) that will allow us to develop, run and manage our application.
 ```
 
 5. **Identify and describe the software to be used in your App.**
@@ -223,7 +250,13 @@ Another abstraction that we will use heavily is Active Record. This particular c
 
 10. **Detail any third party services that your App will use.**
 ```
-Unsure: Does devise count as third party?
+Heroku as a cloud service for deployement
+
+Ruby Gems:
+- Devise
+- Pundit
+- GeoLocator
+- Stripe
 ```
 
 11. **Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).**
