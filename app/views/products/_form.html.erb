@@ -12,37 +12,37 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :quantity %>
+    <%= form.label :quantity %> <br>
     <%= form.number_field :quantity %>
   </div>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :title %> <br>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label :description %> <br>
     <%= form.text_area :description %>
   </div>
 
   <div class="field">
-    <%= form.label :cost_per_unit %>
+    <%= form.label :cost_per_unit %> <br>
     <%= form.text_field :cost_per_unit %>
   </div>
 
   <div class="field">
-    <%= form.label :pickup_location %>
+    <%= form.label :pickup_location %> <br>
     <%= form.text_field :pickup_location %>
   </div>
 
   <div class="field">
-    <%= form.label :expiry %>
+    <%= form.label :expiry %> <br>
     <%= form.date_select :expiry %>
   </div>
 
   <div class="field">
-    <%= form.label :food_category %>
+    <%= form.label :food_category %> <br>
     <%= form.text_field :food_category %>
         <%# <select>
         <option value="fruits">Fruits</option>
@@ -65,11 +65,11 @@
   </div> %>
 
   <div class="field">
-    <%= form.label :image %>
+    <%= form.label :image %> <br>
     <%= form.file_field :image %>
   </div>
 
-  <div class="actions">
+  <div class="actions"> <br>
     <%= form.submit %>
   </div>
 <% end %>

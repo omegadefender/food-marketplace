@@ -4,21 +4,33 @@
 <h3 class="welcome welcome2">What would you like to do? </h3> 
 
 <div class="main-grid">
+
+                    <img class="img_post landing_imgs" src="https://uploads-ssl.webflow.com/5a7edf0d432d43000114d381/5ac292d760db49b4a248f4d1_apple.svg"> 
+
             <div class="link_post landing_page_links">
                 <%= link_to('Post Food', '/products/new')  %>
             </div>
+
+                    <img class="img_find landing_imgs" src="https://uploads-ssl.webflow.com/5a7edf0d432d43000114d381/5b7891207395f1a9cf61e802_bread.svg"> 
             <div class="link_find landing_page_links">
                 <%= link_to('Find Food', '/products')  %>
             </div>
+
+                    <img class="img_manage landing_imgs" src="https://uploads-ssl.webflow.com/5a7edf0d432d43000114d381/5a99f48e3c10db0001e77da6_pencil.svg"> 
             <div class="link_manage landing_page_links">
-                <%= link_to('Manage Details', root_path)  %>
+                <%= link_to('Manage Details', "/users/edit")  %>
             </div>
+
+                    <img class="img_history landing_imgs" src="https://uploads-ssl.webflow.com/5a7edf0d432d43000114d381/5b73770eb1f43f230609ba7f_book_open_0001.svg"> 
             <div class="link_history landing_page_links">
                 <%= link_to('Order History', '/orders')  %>
             </div>
+
+                    <%# <img class="img_about landing_imgs" src="https://uploads-ssl.webflow.com/5a7edf0d432d43000114d381/5ba6e683f49b77556bf04a5a_BFFs.svg">  %>
+                    <img class="img_about landing_imgs" src="https://uploads-ssl.webflow.com/5a7edf0d432d43000114d381/5ad25ba40f7efdfaa2f25703_handsup0001B.svg"> 
             <div class="link_about landing_page_links">
                 <%= link_to('About Us', '/pages/about_us')  %>
-    </div>
+            </div>
 </div>
 
 </body>
