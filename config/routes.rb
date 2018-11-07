@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get '/pages/landing_page_login', to: 'pages#landing_page_login'
   get '/pages/about_us', to: 'pages#about_us'
   get '/account/:id', to: 'pages#account'
+  get '/product', to: 'product#index'
 end

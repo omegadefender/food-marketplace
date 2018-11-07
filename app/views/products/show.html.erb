@@ -7,7 +7,7 @@
 <!-- Grab current user email to use in stripe-->
 
 <p>
-  <strong>Stock:</strong>
+  <strong>Quantity:</strong>
   <%= @product.quantity %>
 </p>
 
@@ -51,11 +51,8 @@
   <%= @product.user.email %>
 </p>
 
-
-
-
 <!-- This part deals with the stripe button -->
-<%= form_tag charges_path do %>
+<%= form_tag charges_path, method: :post do %>
 
   <%= hidden_field_tag(:product_id, @product.id) %>
   <%= hidden_field_tag(:price, @product.cost_per_unit, id: :price) %>
@@ -95,28 +92,66 @@
     console.log(total)
 
     var handler = StripeCheckout.configure({
-      key: 'pk_test_1vKbEV4RJbEZd8J6TnRyNevM',
+      key: '<%= ENV.fetch('PUBLISHABLE_KEY')%>',
       image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
       locale: 'auto',
       token: function(token) {
+        // create url for posting form
+        var path = '<%= charges_url %>';
+      
+        // create a form
+        var form = document.createElement('form')
+        form.setAttribute("method", 'POST');
+        form.setAttribute("action", path);
+
+        // create an input to add to the form
+        var hidden = document.createElement('input')
+        var input = document.createElement('input')
+        var product = document.createElement('input')
+
+        product.setAttribute('name', 'product_id')
+        product.setAttribute('value', '<%= @product.id %>')
+
+        hidden.setAttribute('type', 'hidden')
+        hidden.setAttribute('value', '<%= form_authenticity_token %>')
+        hidden.setAttribute('name', 'authenticity_token')
+        
+        input.setAttribute('name', 'stripeToken')
+        input.setAttribute('value', token.id)
+
+        
+        form.appendChild(hidden)
+        form.appendChild(input)
+        form.appendChild(product)
+
+        document.body.appendChild(form)
+        form.submit()
+
         // You can access the token ID with `token.id`.
         // Get the token ID to your server-side code for use.
       }
     });
 
     document.getElementById('customButton').addEventListener('click', function(e) {
-    // Open Checkout with further options:
-    handler.open({
-      name: title.value,
-      description: description.value,
-      currency: 'aud',
-      amount: total,
-      allowRememberMe: false,
-      email: email.value
+      // Open Checkout with further options:
+      console.log('payment',total)
+
+      e.preventDefault();
       
-    });
-    console.log(total);
-    e.preventDefault();
+      handler.open({
+        name: title.value,
+        description: description.value,
+        currency: 'aud',
+        amount: total,
+        allowRememberMe: false,
+        email: email.value
+      });
+
+      
+
+      // e.target.submit()
+
+      
 
     });
 
@@ -128,18 +163,18 @@
     function updateTotal(event) {
       var qty = event.target.value;
       return price.value * qty
-      console.log(qty)
     }
 
     function updatePage(event) {
       total = updateTotal(event)
       totalText.innerText = total
     }
-
+    
   </script>
 
 <% end %>
 <!-- This part deals with the stripe button -->
+
 
 <% if @product.user == current_user %>
   <%= link_to 'Edit', edit_product_path(@product) %> |
