@@ -1,0 +1,28 @@
+.grid {
+    // margin-left: 200px;
+    // margin-right: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.mushroom {
+    // grid-area: 2/2;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    align-content: center;
+    padding-bottom: 0px;
+}
+
+.submit {
+    grid-area: 4/2;
+    color:green;
+}
+
+.des {
+    width: 475px;
+    height: 80px;
+}

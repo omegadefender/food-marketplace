@@ -1,12 +1,19 @@
 
 <div style="text-align: center;">
     <h1 style="font-size: 50px;"><%= @main_header %></h1>
+    <img src="https://uploads-ssl.webflow.com/5a7edf0d432d43000114d381/5bb4c0605e9306c244377d67_tree_009.svg" width="400px" height="200px" style="display: block; margin-left: auto; margin-right: auto;">
     <h2 style="font-size: 30px;"><%= @second_header %></h2>
+
     <p><%= @website_description %></p>
 </div>
 
+<br>
+
 <div id="landing_page_sign_up" style="text-align: center; font-size: 25px;"><%= link_to('Hungry, Broke & Local?', new_user_registration_path) %></div>
 
-<div id="landing_page_image" style="padding-top: 100px;"><img src="https://bit.ly/2Dd8pvU" width="600px" height="300px" style="display: block; margin-left: auto; margin-right: auto;"></div>
+<p class="landing_page" style="text-align: center;">already have an account?</p>
 
+<div id="landing_page_sign_up" style="text-align: center; font-size: 25px; "><%= link_to('Login', new_user_session_path) %></div>
+
+<div id="landing_page_image" style="padding-top: 20px;"></div>
 

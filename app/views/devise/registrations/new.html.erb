@@ -1,34 +1,45 @@
+<html>
+
+  <link rel="/assets/stylesheets/sign_up.scss" type="css" href="/assets/stylesheets/sign_up.scss">
+
 <h2>Sign up</h2>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-    <div class="field">
-    <%= f.label :first %><br />
+<div class="grid">
+
+    <img class="pencil field" src="https://uploads-ssl.webflow.com/5a7edf0d432d43000114d381/5a99f48e3c10db0001e77da6_pencil.svg">
+
+    <div class="firtsname field">
+    <%= f.label :first%><br />
     <%= f.text_field :firstname, autofocus: true, autocomplete: "name" %>
   </div>
 
-      <div class="field">
+      <div class="lastname field">
     <%= f.label :last %><br />
     <%= f.text_field :lastname, autofocus: true, autocomplete: "name" %>
   </div>
 
-      <div class="field">
-    <%= f.label :contact %><br />
-    <%= f.text_field :phonenumber, autofocus: true, autocomplete: "name" %>
-  </div>
-
-      <div class="field">
-    <%= f.label :Date_of_Birth %><br />
-    <%= f.date_field :dob, autofocus: true%>
-  </div>
-
-  <div class="field">
+      <div class="email field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
+      <div class="contact field">
+    <%= f.label :contact %><br />
+    <%= f.text_field :phonenumber, autofocus: true, autocomplete: "name" %>
+  </div>
+
+      <div class="d_o_b field">
+    <%= f.label :Date_of_Birth %><br />
+    <%= f.date_field :dob, autofocus: true%>
+  </div>
+
+ 
+
+  <div class="password field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -36,14 +47,18 @@
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
+  <div class="password_confirm field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="actions">
+  <div class="signup_button">
     <%= f.submit "Sign up" %>
-  </div>
 <% end %>
+<br><br>
+  <%= link_to 'Back', :root %>
+  </div>
 
-<%= render "devise/shared/links" %>
+
+
+</html>

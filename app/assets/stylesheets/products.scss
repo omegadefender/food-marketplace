@@ -1,3 +1,29 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.input_field {
+    background: #82e380;
+    font-family: futura;
+    font-size: 14px;
+    color: #71816D;
+    border: #71816D;
+    border-radius: 5px;
+}
+
+.input_field:focus {
+    outline: none;
+  }
+
+.des1 {
+    grid-column: 1/4;
+    grid-row: 2;
+}
+
+.actions {
+    color: green;
+    margin: 33px;
+    font-family: futura;
+    font-size: 13px;
+    line-height: 18px;
+}

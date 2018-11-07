@@ -1,3 +1,5 @@
+<link rel="/assets/stylesheets/new_product.scss" type="css" href="/assets/stylesheets/new_product.scss">
+
 <%= form_with(model: product, local: true) do |form| %>
   <% if product.errors.any? %>
     <div id="error_explanation">
@@ -5,45 +7,50 @@
 
       <ul>
       <% product.errors.full_messages.each do |message| %>
+      
+
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
+<div class="grid">
+
+
   <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
+    <%= form.label :title %> <br>
+    <%= form.text_field :title, class:"input_field" %>
   </div>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.label :quantity %> <br>
+    <%= form.number_field :quantity, class:"input_field" %>
+  </div>
+
+  <div class="field des1">
+    <%= form.label :description %> <br>
+    <%= form.text_area :description, class:"input_field des" %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.label :cost_per_unit %> <br>
+    <%= form.text_field :cost_per_unit, class:"input_field" %>
   </div>
 
   <div class="field">
-    <%= form.label :cost_per_unit %>
-    <%= form.text_field :cost_per_unit %>
+    <%= form.label :pickup_location %> <br>
+    <%= form.text_field :pickup_location, class:"input_field" %>
   </div>
 
   <div class="field">
-    <%= form.label :pickup_location %>
-    <%= form.text_field :pickup_location %>
-  </div>
-
-  <div class="field">
-    <%= form.label :expiry %>
+    <%= form.label :expiry %> <br>
     <%= form.date_select :expiry %>
   </div>
 
-  <%# <div class="field">
-    <%= form.label :food_category %>
-    <%# <%= form.text_field :food_category %> %> %>
+  <div class="field">
+    <%= form.label :food_category %> <br>
+    <%= form.text_field :food_category, class:"input_field" %>
         <%# <select>
         <option value="fruits">Fruits</option>
         <option value="vegetables">Vegetables</option>
@@ -53,24 +60,27 @@
         <option value="condiments">Condiments</option>
         <option value="dairy">Dairy</option>
         <option value="animal produce">Animal Produce</option>
-      </select> %>
-  <%# </div> %>
+      </select> %> 
+  </div>
 
-  <div class="field"> %>
+  <%# <div class="field"> 
         <select>
         <option value="none">None</option>
         <option value="vegetarian">Vegetarian</option>
         <option value="vegan">Vegan</option>
-        </select> %>
-  </div>
+        </select> 
+  </div> %>
 
   <div class="field">
-    <%= form.label :image %>
+    <%= form.label :image %> <br>
     <%= form.file_field :image %>
   </div>
 
-  <div class="actions">
+  <div class="actions submit"> <br>
     <%= form.submit %>
   </div>
+
+  </div>
+
 <% end %>
 
