@@ -114,7 +114,7 @@ User: The user table is what will handle the authentication of the website
 
 Profile: The profile table is what controls the personal information for the website. We decided to split the two because it would be more secure if the table for authentication is seperate from personal data. Should there be a breach the personal data would technically be seperate from the user table.
 
-** note: the Profile table was made redundant, and all user data was placed into the  as there were issues with accessing the two tables on forms/pages. Effort was expended trying to make this work, but in the end we had to have all the User data in the one table. The closest solution I got to was have the Profile table be a sub-class of the User table, and then have a piece of code that would prevent the columns from the User table being inherited into the profile table. With more time, I am are sure that this solution.
+** note: the Profile table was made redundant, and all user data was placed into the User table as there were issues with accessing the two tables on forms/pages. Effort was expended trying to make this work, but in the end we had to have all the User data in the one table. The closest solution I got to was have the Profile table be a sub-class of the User table, and then have a piece of code that would prevent the columns from the User table being inherited into the profile table. With more time, I am are sure that a solution would have been discovered.
 ```
 
 >HTML/CSS
@@ -341,7 +341,7 @@ All traffic when sending information through the internet ideally should be HTTP
 
 22. **Discuss methods you will use to protect information and data.**
 ```
-By design the models are seperated from user authentication and personal information. User authentication is implemented using devise.c
+By design the models are seperated from user authentication and personal information. User authentication is implemented using devise.
 
 Personal information such as name and contact number will be kept on a seperate table that is associated with the user table. The Profile table authorisation will be checked using pundit. This is so that unauthorised users cannot edit another person's profile.
 Pundit will also be used to check the users access control to their product. Users who have posted the product should be able to edit or delete their own product while other users can only view the product and purchase it
