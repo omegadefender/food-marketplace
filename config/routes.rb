@@ -16,4 +16,13 @@ Rails.application.routes.draw do
   get '/pages/landing_page_login', to: 'pages#landing_page_login'
   get '/pages/about_us', to: 'pages#about_us'
   get '/account/:id', to: 'pages#account'
+
+  resources :conversations do
+    resources :messages
+  end
+
+get '/conversations', to: 'conversation#index'
+get '/conversations/messages/new', to: 'messages#new'
+post '/conversations/messages/new', to: 'messages#create'
+get '/conversations/conversation_params[:id]/messages', to: 'messages#show'
 end

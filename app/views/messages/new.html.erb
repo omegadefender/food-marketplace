@@ -1,0 +1,12 @@
+<h1>New Messages Page<h1>
+
+<%= form_for [@conversation, @message], url: '/conversations/messages/new', html: {class: "ui reply form"} do |f| %>
+ <div class=”field”>
+   <%= f.text_area :body, class: "form-control" %>
+ </div>
+ <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
+ <div>
+   <%= f.submit "Add Reply", url: '/conversations/@conversation[:conversation_id]/messages/message', class: "ui blue labeled submit icon button" %>
+ </div>
+
+<% end %>
