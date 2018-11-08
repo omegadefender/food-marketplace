@@ -118,8 +118,19 @@ Profile: The profile table is what controls the personal information for the web
 ```
 
 >HTML/CSS
-```
-```
+
+We made a wireframe, and just used a light green just to have an idea of where things would be. The green we chose stuck and we ended up just following the rough draft we made with the wireframe.
+Original Wireframe:
+
+https://www.figma.com/file/HExSLkrIrFk4pk093uaNU5LA/Venturetopia?node-id=0%3A1
+
+The main homepage took a transformation from:
+![Wireframe-Prototype](Resources/Wireframe-prototype.png "Wireframe-Prototype")
+
+To a much easier to use:
+![Wireframe-Prototype2](Resources/Wireframe-prototype2.png "Wireframe-Prototype2")
+
+We decided to grab images from The Doodle Library (https://www.thedoodlelibrary.com) for some light hearted and simple images to keep up the theme (all current images by Adi Ben-Hur).
 
 ## User Stories
 ```
@@ -313,7 +324,7 @@ The repo will be hosted on github and deployed into production using heroku
 
 20. **Provide an overview and description of your testing process.**
 ```
-N/A
+We would be allowing users to access our website. Any issues or feedback will be put in the github issue tracker for the team to work on.
 ```
 
 21. **Discuss and analyse requirements related to information system security.**
@@ -341,6 +352,24 @@ In regards to purchasing the product, Stripe will handle the transaction. That w
 
 23. **Research what your legal obligations are in relation to handling user data.**
 ```
+In Australia, the Privacy Act of 1998 is what regulates how personal information is handled.
+
+The following are our obligations when concerning with personal data
+
+- Being open and transparent about the management of the users personal information
+
+- a user should have the option to make a transaction anonymously or under a pseudonym (Username)
+
+- If we were to collect or use the personal information, then we would need to disclose it to the user and have them agree to it
+
+- how personal information can be used and disclosed (including overseas)
+
+- maintaining the quality of personal information
+
+- keeping personal information secure
+
+- the right for users to be able to access and edit their personal information
+
+- Obligation to notify all users who may have had their personal information lost or stolen in the event of a data breach
 
 ```
-
