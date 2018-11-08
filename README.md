@@ -1,6 +1,4 @@
 # Foodtopia README
-
-
 Link to web application: [LINK](https://obscure-sands-49263.herokuapp.com)
 
 Link to GitHub respository: [LINK](https://github.com/dlim28/food-marketplace)
@@ -143,8 +141,7 @@ This format allowed us to easily create generic use cases that could easily buil
 >Link to User Stories document [LINK](https://docs.google.com/document/d/1mt5UJZ15mcWQsgtTvX4b6akVUfdxBVfHIAxipxEv_gA/edit)
 
 ## User Workflow Journey/s
-```
-```
+![User Story](Resources/User-Journey.jpg "User Journey")
 
 ## Wireframes
 ```
