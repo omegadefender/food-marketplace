@@ -23,7 +23,7 @@
 
 <p>
   <strong>Cost per unit:</strong>
-  <%= @product.cost_per_unit %>
+  <%= number_to_currency(@product.cost_per_unit, precision: 2) %>
 </p>
 
 <p>
@@ -66,7 +66,7 @@
   </p>
 
   <p>
-    <strong>Total Amount: <span id="total"><%= @total_price unless nil %></span></strong>
+    <strong>Total Amount: <span id="total"><%= number_to_currency(@total_price, precision: 2) unless nil %></span></strong>
   </p>
 
   <!-- Custom stripe handler -->
@@ -142,7 +142,7 @@
         name: title.value,
         description: description.value,
         currency: 'aud',
-        amount: total,
+        amount: total * 100,
         allowRememberMe: false,
         email: email.value
       });
